@@ -1,0 +1,3 @@
+rootProject.name = 'io.github.melthaw.webhookee'
+include 'webhook'
+include 'openapi'

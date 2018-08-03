@@ -1,0 +1,70 @@
+apply from: "$rootDir/gradle/dependencies.gradle"
+apply plugin: 'idea'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14.1'
+}
+
+allprojects {
+
+    apply plugin: 'idea'
+    apply plugin: 'maven'
+
+    uploadArchives {
+        repositories {
+            mavenLocal()
+        }
+    }
+
+    buildscript {
+        repositories {
+            mavenLocal()
+            mavenCentral()
+        }
+        dependencies {
+            classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        }
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+
+        maven {
+            url 'https://repo.spring.io/libs-snapshot'
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+}
+
+subprojects {
+
+    apply plugin: 'java'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+
+    jar {
+        baseName = project['artifactId']
+        version = project['version']
+    }
+
+    task sourcesJar(type: Jar) {
+        baseName = project['artifactId']
+        version = project['version']
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    artifacts {
+        archives sourcesJar
+    }
+
+    dependencies {
+        testCompile libs.test
+    }
+
+}
