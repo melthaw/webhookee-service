@@ -11,10 +11,12 @@ public interface Route {
 
     String getName();
 
-    String getDescription();
-
     String getTargetType();
 
     String getTargetUrl();
+
+    boolean isEnabled();
+
+    String getDescription();
 
 }

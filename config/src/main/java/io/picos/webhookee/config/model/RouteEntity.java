@@ -23,6 +23,8 @@ public class RouteEntity implements Route {
 
     private String targetUrl;
 
+    private boolean enabled;
+
     @Override
     public String getId() {
         return id;
@@ -76,4 +78,14 @@ public class RouteEntity implements Route {
     public void setTargetUrl(String targetUrl) {
         this.targetUrl = targetUrl;
     }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 }
+
