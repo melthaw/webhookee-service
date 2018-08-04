@@ -11,16 +11,18 @@ import org.springframework.data.domain.Page;
  */
 public interface RouteEntityService extends Router {
 
-    Page<RouteEntity> search(RouteEntitySearchRequest searchRequest);
+    RouteEntity getRoute(String id);
 
-    RouteEntity create(RouteEntitySaveRequest saveRequest);
+    Page<RouteEntity> searchRoutes(RouteEntitySearchRequest searchRequest);
 
-    RouteEntity update(String id, RouteEntitySaveRequest saveRequest);
+    RouteEntity createRoute(RouteEntitySaveRequest saveRequest);
 
-    RouteEntity disable(String id);
+    RouteEntity updateRoute(String id, RouteEntitySaveRequest saveRequest);
 
-    RouteEntity enable(String id);
+    RouteEntity disableRoute(String id);
 
-    RouteEntity delete(String id);
+    RouteEntity enableRoute(String id);
+
+    RouteEntity deleteRoute(String id);
 
 }

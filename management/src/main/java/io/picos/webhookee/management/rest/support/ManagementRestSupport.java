@@ -1,38 +1,27 @@
 package io.picos.webhookee.management.rest.support;
 
-import io.picos.webhookee.outgoing.bearychat.BearyChatMessage;
-import io.picos.webhookee.incoming.bitbucket.BitBucketMessage;
-import io.picos.webhookee.incoming.coding.CodingMessage;
-import io.picos.webhookee.outgoing.dingding.DingDingMessage;
-import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
-import io.picos.webhookee.incoming.github.GitHubMessage;
-import io.picos.webhookee.incoming.gitlab.GitLabMessage;
-import io.picos.webhookee.outgoing.slack.SlackMessage;
-import io.picos.webhookee.outgoing.teambition.TeamBitionMessage;
-import io.picos.webhookee.outgoing.worktile.WorkTileMessage;
+import io.picos.webhookee.management.rest.dto.RouteEntitySaveParam;
+import io.picos.webhookee.management.rest.dto.RouteEntitySearchParam;
+import io.picos.webhookee.management.rest.dto.RouteEntityView;
+import org.springframework.data.domain.Page;
 
 /**
  * @auther dz
  */
 public interface ManagementRestSupport {
 
-    void processMessage(String id, BitBucketMessage message);
+    Page<RouteEntityView> search(RouteEntitySearchParam searchParam);
 
-    void processMessage(String id, GitHubMessage message);
+    RouteEntityView getDetail(String id);
 
-    void processMessage(String id, GitLabMessage message);
+    RouteEntityView create(RouteEntitySaveParam saveParam);
 
-    void processMessage(String id, DockerHubMessage message);
+    RouteEntityView update(String id, RouteEntitySaveParam saveParam);
 
-    void processMessage(String id, CodingMessage message);
+    RouteEntityView enable(String id);
 
-    void processMessage(String id, SlackMessage message);
+    RouteEntityView disable(String id);
 
-    void processMessage(String id, DingDingMessage message);
+    void delete(String id);
 
-    void processMessage(String id, BearyChatMessage message);
-
-    void processMessage(String id, WorkTileMessage message);
-
-    void processMessage(String id, TeamBitionMessage message);
 }

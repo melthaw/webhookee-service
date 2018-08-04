@@ -28,12 +28,17 @@ public class RouteEntityServiceImpl implements RouteEntityService {
     }
 
     @Override
-    public Page<RouteEntity> search(RouteEntitySearchRequest searchRequest) {
+    public RouteEntity getRoute(String id) {
+        return routeEntityRepository.findById(id);
+    }
+
+    @Override
+    public Page<RouteEntity> searchRoutes(RouteEntitySearchRequest searchRequest) {
         return routeEntityRepository.findAll(new PageRequest(searchRequest.getStart(), searchRequest.getLimit()));
     }
 
     @Override
-    public RouteEntity create(RouteEntitySaveRequest saveRequest) {
+    public RouteEntity createRoute(RouteEntitySaveRequest saveRequest) {
         RouteEntity routeEntity = new RouteEntity();
         BeanUtils.copyProperties(saveRequest, routeEntity);
         routeEntity.setEnabled(true);
@@ -41,7 +46,7 @@ public class RouteEntityServiceImpl implements RouteEntityService {
     }
 
     @Override
-    public RouteEntity update(String id, RouteEntitySaveRequest saveRequest) {
+    public RouteEntity updateRoute(String id, RouteEntitySaveRequest saveRequest) {
         RouteEntity routeEntity = routeEntityRepository.findById(id);
         if (routeEntity == null) {
             throw new RouteEntityNotFoundException(id);
@@ -52,7 +57,7 @@ public class RouteEntityServiceImpl implements RouteEntityService {
     }
 
     @Override
-    public RouteEntity disable(String id) {
+    public RouteEntity disableRoute(String id) {
         RouteEntity routeEntity = routeEntityRepository.findById(id);
         if (routeEntity == null) {
             throw new RouteEntityNotFoundException(id);
@@ -62,7 +67,7 @@ public class RouteEntityServiceImpl implements RouteEntityService {
     }
 
     @Override
-    public RouteEntity enable(String id) {
+    public RouteEntity enableRoute(String id) {
         RouteEntity routeEntity = routeEntityRepository.findById(id);
         if (routeEntity == null) {
             throw new RouteEntityNotFoundException(id);
@@ -72,7 +77,7 @@ public class RouteEntityServiceImpl implements RouteEntityService {
     }
 
     @Override
-    public RouteEntity delete(String id) {
+    public RouteEntity deleteRoute(String id) {
         RouteEntity routeEntity = routeEntityRepository.findById(id);
         if (routeEntity == null) {
             throw new RouteEntityNotFoundException(id);
