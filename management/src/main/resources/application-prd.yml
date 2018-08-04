@@ -1,0 +1,10 @@
+logging:
+  file: /var/log/webhookee/management.log
+  level:
+    in.picos.webhookee: DEBUG
+
+endpoints:
+  enabled: false
+  health:
+    enabled: true
+

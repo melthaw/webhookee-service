@@ -3,6 +3,7 @@ include 'webhook'
 include 'config'
 include 'mq/kafka'
 include 'openapi'
+include 'management'
 include 'apidoc'
 include 'server'
 

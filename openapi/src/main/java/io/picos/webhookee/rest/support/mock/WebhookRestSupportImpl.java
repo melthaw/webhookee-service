@@ -5,11 +5,11 @@ import io.picos.webhookee.incoming.coding.CodingMessage;
 import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
 import io.picos.webhookee.incoming.github.GitHubMessage;
 import io.picos.webhookee.incoming.gitlab.GitLabMessage;
-import io.picos.webhookee.outcoming.bearychat.BearyChatMessage;
-import io.picos.webhookee.outcoming.dingding.DingDingMessage;
-import io.picos.webhookee.outcoming.slack.SlackMessage;
-import io.picos.webhookee.outcoming.teambition.TeamBitionMessage;
-import io.picos.webhookee.outcoming.worktile.WorkTileMessage;
+import io.picos.webhookee.outgoing.bearychat.BearyChatMessage;
+import io.picos.webhookee.outgoing.dingding.DingDingMessage;
+import io.picos.webhookee.outgoing.slack.SlackMessage;
+import io.picos.webhookee.outgoing.teambition.TeamBitionMessage;
+import io.picos.webhookee.outgoing.worktile.WorkTileMessage;
 import io.picos.webhookee.rest.support.WebhookRestSupport;
 import org.springframework.stereotype.Component;
 

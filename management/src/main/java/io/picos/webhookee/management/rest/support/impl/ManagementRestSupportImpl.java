@@ -1,7 +1,7 @@
-package io.picos.webhookee.rest.support.impl;
+package io.picos.webhookee.management.rest.support.impl;
 
+import io.picos.webhookee.management.rest.support.ManagementRestSupport;
 import io.picos.webhookee.outgoing.slack.SlackMessage;
-import io.picos.webhookee.rest.support.WebhookRestSupport;
 import io.picos.webhookee.outgoing.bearychat.BearyChatMessage;
 import io.picos.webhookee.incoming.bitbucket.BitBucketMessage;
 import io.picos.webhookee.incoming.coding.CodingMessage;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
  * @auther dz
  */
 @Component
-public class WebhookRestSupportImpl implements WebhookRestSupport {
+public class ManagementRestSupportImpl implements ManagementRestSupport {
 
 
     @Override

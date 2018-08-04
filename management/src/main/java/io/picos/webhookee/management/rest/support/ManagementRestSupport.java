@@ -1,4 +1,4 @@
-package io.picos.webhookee.rest.support;
+package io.picos.webhookee.management.rest.support;
 
 import io.picos.webhookee.outgoing.bearychat.BearyChatMessage;
 import io.picos.webhookee.incoming.bitbucket.BitBucketMessage;
@@ -14,7 +14,7 @@ import io.picos.webhookee.outgoing.worktile.WorkTileMessage;
 /**
  * @auther dz
  */
-public interface WebhookRestSupport {
+public interface ManagementRestSupport {
 
     void processMessage(String id, BitBucketMessage message);
 
