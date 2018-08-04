@@ -5,6 +5,16 @@ package io.picos.webhookee.core;
  */
 public interface Route {
 
-    String getTarget();
+    String getId();
+
+    String getType();
+
+    String getName();
+
+    String getDescription();
+
+    String getTargetType();
+
+    String getTargetUrl();
 
 }

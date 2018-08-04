@@ -1,15 +1,15 @@
 package io.picos.webhookee.rest.controller;
 
 import io.picos.webhookee.rest.support.WebhookRestSupport;
-import io.picos.webhookee.webhook.bearychat.BearyChatMessage;
-import io.picos.webhookee.webhook.bitbucket.BitBucketMessage;
-import io.picos.webhookee.webhook.coding.CodingMessage;
-import io.picos.webhookee.webhook.dingding.DingDingMessage;
-import io.picos.webhookee.webhook.dockerhub.DockerHubMessage;
-import io.picos.webhookee.webhook.github.GitHubMessage;
-import io.picos.webhookee.webhook.gitlab.GitLabMessage;
-import io.picos.webhookee.webhook.teambition.TeamBitionMessage;
-import io.picos.webhookee.webhook.worktile.WorkTileMessage;
+import io.picos.webhookee.outcoming.bearychat.BearyChatMessage;
+import io.picos.webhookee.incoming.bitbucket.BitBucketMessage;
+import io.picos.webhookee.incoming.coding.CodingMessage;
+import io.picos.webhookee.outcoming.dingding.DingDingMessage;
+import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
+import io.picos.webhookee.incoming.github.GitHubMessage;
+import io.picos.webhookee.incoming.gitlab.GitLabMessage;
+import io.picos.webhookee.outcoming.teambition.TeamBitionMessage;
+import io.picos.webhookee.outcoming.worktile.WorkTileMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -24,64 +24,66 @@ public class WebhookRestController {
     @Autowired
     private WebhookRestSupport webhookRestSupport;
 
-    @PostMapping("/bitbucket")
+    @PostMapping("/bitbucket/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void bitbucket(@RequestBody BitBucketMessage message) {
-        webhookRestSupport.processMessage(message);
+    public void bitbucket(@PathVariable String id, @RequestBody BitBucketMessage message) {
+        webhookRestSupport.processMessage(id, message);
     }
 
-    @PostMapping("/github")
+    @PostMapping("/github/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void github(@RequestBody GitHubMessage message) {
-        webhookRestSupport.processMessage(message);
+    public void github(@PathVariable String id, @RequestBody GitHubMessage message) {
+        webhookRestSupport.processMessage(id, message);
     }
 
-    @PostMapping("/gitlab")
+    @PostMapping("/gitlab/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void gitlab(@RequestBody GitLabMessage message) {
-        webhookRestSupport.processMessage(message);
+    public void gitlab(@PathVariable String id, @RequestBody GitLabMessage message) {
+        webhookRestSupport.processMessage(id, message);
     }
 
-    @PostMapping("/dockerhub")
+    @PostMapping("/dockerhub/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void dockerhub(@RequestBody DockerHubMessage message) {
-        webhookRestSupport.processMessage(message);
+    public void dockerhub(@PathVariable String id, @RequestBody DockerHubMessage message) {
+        webhookRestSupport.processMessage(id, message);
     }
 
-    @PostMapping("/slack")
+    @PostMapping("/coding/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void slack(@RequestBody BitBucketMessage message) {
-        webhookRestSupport.processMessage(message);
+    public void coding(@PathVariable String id, @RequestBody CodingMessage message) {
+        webhookRestSupport.processMessage(id, message);
     }
 
-    @PostMapping("/dingding")
+    //quick test for IM
+
+    @PostMapping("/slack/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void dingding(@RequestBody DingDingMessage message) {
-        webhookRestSupport.processMessage(message);
+    public void slack(@PathVariable String id, @RequestBody BitBucketMessage message) {
+        webhookRestSupport.processMessage(id, message);
     }
 
-    @PostMapping("/bearychat")
+    @PostMapping("/dingding/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void bearychat(@RequestBody BearyChatMessage message) {
-        webhookRestSupport.processMessage(message);
+    public void dingding(@PathVariable String id, @RequestBody DingDingMessage message) {
+        webhookRestSupport.processMessage(id, message);
     }
 
-    @PostMapping("/coding")
+    @PostMapping("/bearychat/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void coding(@RequestBody CodingMessage message) {
-        webhookRestSupport.processMessage(message);
+    public void bearychat(@PathVariable String id, @RequestBody BearyChatMessage message) {
+        webhookRestSupport.processMessage(id, message);
     }
 
-    @PostMapping("/worktile")
+    @PostMapping("/worktile/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void worktile(@RequestBody WorkTileMessage message) {
-        webhookRestSupport.processMessage(message);
+    public void worktile(@PathVariable String id, @RequestBody WorkTileMessage message) {
+        webhookRestSupport.processMessage(id, message);
     }
 
-    @PostMapping("/teambition")
+    @PostMapping("/teambition/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void teambition(@RequestBody TeamBitionMessage message) {
-        webhookRestSupport.processMessage(message);
+    public void teambition(@PathVariable String id, @RequestBody TeamBitionMessage message) {
+        webhookRestSupport.processMessage(id, message);
     }
 
 }

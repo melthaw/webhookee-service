@@ -1,3 +1,8 @@
-rootProject.name = 'io.github.melthaw.webhookee'
+rootProject.name = 'io.picos.webhookee'
 include 'webhook'
+include 'config'
+include 'mq/kafka'
 include 'openapi'
+include 'apidoc'
+include 'server'
+

@@ -5,7 +5,7 @@ package io.picos.webhookee.core;
  */
 public interface Request {
 
-    String getSourceType();
+    Route getRoute();
 
     Payload getPayload();
 

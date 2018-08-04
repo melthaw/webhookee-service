@@ -1,6 +1,6 @@
 package io.picos.webhookee.message;
 
-import io.picos.webhookee.core.Request;
+import io.picos.webhookee.core.Payload;
 
 /**
  * @auther dz
@@ -9,9 +9,9 @@ public interface MessageProducer<T> {
 
     /**
      *
-     * @param request
+     * @param payload
      * @return the type of underlying MQ asked.
      */
-    T produce(Request request);
+    T produce(Payload payload);
 
 }

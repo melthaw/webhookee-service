@@ -1,5 +1,6 @@
 dependencies {
     compile libs.springBoot
+    compile libs.swagger2
 
     compile project(':webhook')
 }

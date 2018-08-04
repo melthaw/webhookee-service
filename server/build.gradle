@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+apply plugin: "io.spring.dependency-management"
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter"
+    compile "org.springframework.boot:spring-boot-starter-web"
+
+    compile project(':webhook')
+    compile project(':config')
+    compile project(':openapi')
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("io.rest-assured:rest-assured:3.1.0")
+    testCompile("io.rest-assured:spring-mock-mvc:3.1.0")
+}
+
+bootRun {
+    if (project.hasProperty('jvmArgs')) {
+        jvmArgs project.jvmArgs.split('\\s+')
+    }
+    if (project.hasProperty('args')) {
+        args project.args.split('\\s+')
+    }
+}

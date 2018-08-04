@@ -1,6 +1,6 @@
 package io.picos.webhookee.message;
 
-import io.picos.webhookee.core.Request;
+import io.picos.webhookee.core.Payload;
 import io.picos.webhookee.core.Route;
 
 /**
@@ -9,9 +9,9 @@ import io.picos.webhookee.core.Route;
 public interface MessageConsumer {
 
     /**
-     * @param request
+     * @param payload
      * @param route
      */
-    void consume(Request request, Route route);
+    void consume(Payload payload, Route route);
 
 }
