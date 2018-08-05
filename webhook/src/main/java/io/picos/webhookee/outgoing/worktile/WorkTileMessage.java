@@ -44,6 +44,30 @@ public class WorkTileMessage implements Payload {
     public static WorkTileMessage from(DockerHubMessage dockerHubMessage) {
         WorkTileMessage result = new WorkTileMessage();
 
+        WorkTileAttachment attachment = new WorkTileAttachment();
+        attachment.setAuthorName(dockerHubMessage.getPushData().getPusher());
+        attachment.setTitle(String.format("[%s/%s:%s] is created",
+                                          dockerHubMessage.getRepository().getNamespace(),
+                                          dockerHubMessage.getRepository().getRepoName(),
+                                          dockerHubMessage.getPushData().getTag()));
+        // FIXME: 2018/8/5
+        attachment.setText(String.format("[%s/%s:%s] is created",
+                                         dockerHubMessage.getRepository().getNamespace(),
+                                         dockerHubMessage.getRepository().getRepoName(),
+                                         dockerHubMessage.getPushData().getTag()));
+
+
+        WorkTileField field = new WorkTileField();
+        field.setTitle(String.format("Repository: %s/%s:%s",
+                                     dockerHubMessage.getRepository().getNamespace(),
+                                     dockerHubMessage.getRepository().getRepoName(),
+                                     dockerHubMessage.getPushData().getTag()));
+        field.setValue(String.format("Date: %s",
+                                     dockerHubMessage.getPushData().getPushedAt()));
+        attachment.getFields().add(field);
+
+        result.setAttachment(attachment);
+
         return result;
     }
 

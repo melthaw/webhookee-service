@@ -10,5 +10,5 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @Configuration
 @ComponentScan({"io.picos.webhookee.config.service"})
 @EnableMongoRepositories({"io.picos.webhookee.config.repository"})
-public class ConfigModuleConfiguration {
+public class ConfigAutoConfiguration {
 }

@@ -1,9 +1,9 @@
 rootProject.name = 'io.picos.webhookee'
 include 'webhook'
 include 'config'
-include 'mq/kafka'
+//include 'kafka'
+include 'rabbitmq'
 include 'openapi'
+include 'broker'
 include 'management'
 include 'apidoc'
-include 'server'
-

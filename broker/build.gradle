@@ -16,6 +16,7 @@ dependencies {
 
     compile project(':webhook')
     compile project(':config')
+    compile project(':rabbitmq')
     compile project(':openapi')
 
     testCompile("org.springframework.boot:spring-boot-starter-test")

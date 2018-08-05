@@ -1,5 +1,6 @@
 package io.picos.webhookee.server;
 
+import io.picos.webhookee.rest.OpenApiModuleConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,9 +13,9 @@ import org.springframework.web.context.WebApplicationContext;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
-@Import({WebhookeeWebMvcConfigurer.class})
+@Import({WebhookeeWebMvcConfigurer.class, OpenApiModuleConfiguration.class})
 @EnableAsync
-public class WebhookeeApplication extends SpringBootServletInitializer {
+public class WebhookeeBroker extends SpringBootServletInitializer {
 
     @Override
     protected WebApplicationContext run(SpringApplication application) {
@@ -23,7 +24,7 @@ public class WebhookeeApplication extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(new Object[]{WebhookeeApplication.class}, args);
+        SpringApplication.run(new Object[]{WebhookeeBroker.class}, args);
     }
 
 }

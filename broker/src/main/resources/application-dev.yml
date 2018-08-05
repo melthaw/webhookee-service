@@ -1,0 +1,16 @@
+server:
+  port: 8080
+  address: 0.0.0.0
+  session:
+    timeout: 360000
+
+security:
+  basic:
+    enabled: false
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}

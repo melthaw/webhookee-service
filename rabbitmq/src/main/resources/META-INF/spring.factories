@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-io.picos.webhookee.config.ConfigAutoConfiguration
+io.picos.webhookee.mq.RabbitAutoConfiguration
