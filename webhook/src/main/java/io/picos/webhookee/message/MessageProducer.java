@@ -1,17 +1,19 @@
 package io.picos.webhookee.message;
 
 import io.picos.webhookee.core.Payload;
+import io.picos.webhookee.core.Route;
 
 /**
  * @auther dz
  */
-public interface MessageProducer<T> {
+public interface MessageProducer<T extends Payload> {
 
     /**
+     * TODO return Future
      *
+     * @param route
      * @param payload
-     * @return the type of underlying MQ asked.
      */
-    T produce(Payload payload);
+    void produce(Route route, T payload);
 
 }

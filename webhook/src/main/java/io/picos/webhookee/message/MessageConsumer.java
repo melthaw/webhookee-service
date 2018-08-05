@@ -6,12 +6,12 @@ import io.picos.webhookee.core.Route;
 /**
  * @auther dz
  */
-public interface MessageConsumer {
+public interface MessageConsumer<T extends Payload> {
 
     /**
-     * @param payload
      * @param route
+     * @param payload
      */
-    void consume(Payload payload, Route route);
+    void consume(Route route, T payload);
 
 }

@@ -2,12 +2,15 @@ package io.picos.webhookee.incoming.dockerhub;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.picos.webhookee.core.Payload;
 
 /**
  * @auther dz
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DockerHubMessage {
+public class DockerHubMessage implements Payload {
+
+    public static final String MESSAGE_TYPE = "dockerhub";
 
     @JsonProperty("callback_url")
     private String callbackUrl;

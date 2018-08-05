@@ -30,13 +30,16 @@ package io.picos.webhookee.outgoing.worktile;
 //}
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.picos.webhookee.core.Payload;
 import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
 
 /**
  * @auther dz
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WorkTileMessage {
+public class WorkTileMessage implements Payload {
+
+    public static final String MESSAGE_TYPE = "worktile";
 
     public static WorkTileMessage from(DockerHubMessage dockerHubMessage) {
         WorkTileMessage result = new WorkTileMessage();
