@@ -1,6 +1,6 @@
 from clouthinkin/jre
 
-ADD build/libs/webhookee-server-1.0.0-SNAPSHOT.jar /
+ADD build/libs/webhookee-broker-1.0.0-SNAPSHOT.jar /
 ADD docker/container_files/ /
 
 RUN chmod +x /*.sh

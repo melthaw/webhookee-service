@@ -1,0 +1,14 @@
+server:
+  port: 8082
+  address: 0.0.0.0
+
+security:
+  basic:
+    enabled: false
+
+spring:
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}

@@ -6,4 +6,4 @@ JAR_VERSION=1.0.0-SNAPSHOT
 echo "Using JAVA_OPTS=$JAVA_OPTS"
 echo "CMD Args: $@"
 
-java $JAVA_OPTS -jar "/webhookee-server-${JAR_VERSION}.jar" "$@"
+java $JAVA_OPTS -jar "/webhookee-broker-${JAR_VERSION}.jar" "$@"

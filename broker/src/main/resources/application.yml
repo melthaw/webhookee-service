@@ -2,10 +2,6 @@ app:
   name: webhookee server
   description: webhookee server
 
-server:
-  port: 80
-  address: 0.0.0.0
-
 security:
   basic:
     enabled: false
