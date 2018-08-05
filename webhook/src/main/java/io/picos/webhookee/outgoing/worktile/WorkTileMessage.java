@@ -58,11 +58,11 @@ public class WorkTileMessage implements Payload {
 
 
         WorkTileField field = new WorkTileField();
-        field.setTitle(String.format("Repository: %s/%s:%s",
+        field.setTitle(String.format("Repository %s/%s:%s",
                                      dockerHubMessage.getRepository().getNamespace(),
                                      dockerHubMessage.getRepository().getRepoName(),
                                      dockerHubMessage.getPushData().getTag()));
-        field.setValue(String.format("Date: %s",
+        field.setValue(String.format("Date %s",
                                      dockerHubMessage.getPushData().getPushedAt()));
         attachment.getFields().add(field);
 
