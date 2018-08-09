@@ -19,7 +19,6 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -44,11 +43,11 @@ public class RabbitMessageProducer implements MessageProducer, InitializingBean 
     @Override
     public void produce(Route route, WebhookMessage webhookMessage) {
         Optional.of(supportMap.get(route.getType()))
-                .ifPresent(queue -> {
+                .ifPresent(support -> {
                                try {
-                                   RabbitPayload rabbitPayload = queue.getCreator()
-                                                                      .apply(route,
-                                                                             webhookMessage);
+                                   RabbitPayload rabbitPayload = support.getCreator()
+                                                                        .apply(route,
+                                                                               webhookMessage);
 
                                    Message amqpMessage = MessageBuilder.withBody(objectMapper.writeValueAsBytes(rabbitPayload))
                                                                        .andProperties(MessagePropertiesBuilder.newInstance()
@@ -57,7 +56,7 @@ public class RabbitMessageProducer implements MessageProducer, InitializingBean 
                                                                                                               .build())
                                                                        .build();
 
-                                   rabbitTemplate.convertAndSend(queue.getQueue(),
+                                   rabbitTemplate.convertAndSend(support.getQueue(),
                                                                  amqpMessage);
                                } catch (JsonProcessingException e) {
                                    logger.error("Serialize message failed", e);

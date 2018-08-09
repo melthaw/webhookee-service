@@ -1,0 +1,30 @@
+version: '2.1'
+services:
+  broker:
+    container_name: webhookee-broker
+    image: melthaw/webhookee:broker
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+      - rabbitmq
+    ports:
+      - "80:80"
+  rabbitmq:
+    container_name: webhookee-rabbitmq
+    image: rabbitmq:3
+    ports:
+      - "4367:4367"
+      - "5671:5671"
+      - "5672:5672"
+      - "25672:25672"
+  mongodb:
+    container_name: webhookee-mongodb
+    image: mongo
+    ports:
+      - "27017:27017"
+  redis:
+    container_name: webhookee-redis
+    image: redis:alpine
+    ports:
+      - "6379:6379"

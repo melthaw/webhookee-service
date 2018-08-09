@@ -66,12 +66,17 @@ public class BearyChatMessage implements WebhookMessage {
     public static BearyChatMessage from(DockerHubMessage dockerHubMessage) {
         BearyChatMessage result = new BearyChatMessage();
 
+        result.setText(String.format("[%s/%s:%s] is created",
+                                     dockerHubMessage.getRepository().getNamespace(),
+                                     dockerHubMessage.getRepository().getRepoName(),
+                                     dockerHubMessage.getPushData().getTag()));
+
         BearyChatAttachment attachment = new BearyChatAttachment();
         attachment.setTitle(String.format("[%s/%s:%s] is created",
                                           dockerHubMessage.getRepository().getNamespace(),
                                           dockerHubMessage.getRepository().getRepoName(),
                                           dockerHubMessage.getPushData().getTag()));
-        // FIXME: 2018/8/5
+        
         attachment.setText(String.format("[%s/%s:%s] is created",
                                          dockerHubMessage.getRepository().getNamespace(),
                                          dockerHubMessage.getRepository().getRepoName(),
