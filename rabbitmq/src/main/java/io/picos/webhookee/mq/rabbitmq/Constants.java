@@ -5,6 +5,6 @@ package io.picos.webhookee.mq.rabbitmq;
  */
 public class Constants {
 
-    public static final String WEBHOOKEE_QUEUE = "webhookee";
+    public static final String WEBHOOKEE_QUEUE = "io.picos.webhookee";
 
 }
