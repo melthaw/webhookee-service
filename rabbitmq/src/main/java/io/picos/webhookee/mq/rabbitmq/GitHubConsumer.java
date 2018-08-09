@@ -1,9 +1,7 @@
 package io.picos.webhookee.mq.rabbitmq;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.picos.webhookee.core.Payload;
 import io.picos.webhookee.core.Route;
-import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
 import io.picos.webhookee.incoming.github.GitHubMessage;
 import io.picos.webhookee.message.MessageConsumer;
 import io.picos.webhookee.outgoing.bearychat.BearyChatMessage;
@@ -42,12 +40,12 @@ public class GitHubConsumer implements MessageConsumer<GitHubMessage> {
     public void process(Message message) {
         try {
             //deserialize
-            WebhookeeMessage<GitHubMessage> webhookeeMessage = objectMapper.readValue(message.getBody(),
-                                                                                      WebhookeeMessage.class);
-            Route route = webhookeeMessage.getRoute();
-            GitHubMessage payload = webhookeeMessage.getPayload();
+            GitHubPayload rabbitPayload = objectMapper.readValue(message.getBody(),
+                                                                 GitHubPayload.class);
+            Route route = rabbitPayload.getRoute();
+            GitHubMessage gitHubMessage = rabbitPayload.getMessage();
 
-            consume(route, payload);
+            consume(route, gitHubMessage);
         } catch (RestClientException e) {
             logger.error("Process webhook request failed.\n Content:\n" + new String(message.getBody()), e);
         } catch (IOException e) {
@@ -56,14 +54,14 @@ public class GitHubConsumer implements MessageConsumer<GitHubMessage> {
     }
 
     @Override
-    public void consume(Route route, GitHubMessage payload) {
+    public void consume(Route route, GitHubMessage message) {
         if (WorkTileMessage.MESSAGE_TYPE.equals(route.getTargetType())) {
             this.restTemplate.postForLocation(route.getTargetUrl(),
-                                              WorkTileMessage.from(payload));
+                                              WorkTileMessage.from(message));
         }
         else if (BearyChatMessage.MESSAGE_TYPE.equals(route.getTargetType())) {
             this.restTemplate.postForLocation(route.getTargetUrl(),
-                                              BearyChatMessage.from(payload));
+                                              BearyChatMessage.from(message));
         }
     }
 }

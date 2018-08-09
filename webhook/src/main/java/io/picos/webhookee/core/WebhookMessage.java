@@ -5,6 +5,6 @@ import java.io.Serializable;
 /**
  * @auther dz
  */
-public interface Payload extends Serializable {
+public interface WebhookMessage extends Serializable {
 
 }

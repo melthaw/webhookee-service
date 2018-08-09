@@ -1,11 +1,11 @@
 package io.picos.webhookee.outgoing.slack;
 
-import io.picos.webhookee.core.Payload;
+import io.picos.webhookee.core.WebhookMessage;
 
 /**
  * @auther dz
  */
-public class SlackMessage implements Payload {
+public class SlackMessage implements WebhookMessage {
 
     public static final String MESSAGE_TYPE = "slack";
 

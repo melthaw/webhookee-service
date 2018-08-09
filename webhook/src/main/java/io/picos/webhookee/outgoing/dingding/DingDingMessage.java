@@ -1,11 +1,11 @@
 package io.picos.webhookee.outgoing.dingding;
 
-import io.picos.webhookee.core.Payload;
+import io.picos.webhookee.core.WebhookMessage;
 
 /**
  * @auther dz
  */
-public class DingDingMessage implements Payload {
+public class DingDingMessage implements WebhookMessage {
 
     public static final String MESSAGE_TYPE = "dingding";
 

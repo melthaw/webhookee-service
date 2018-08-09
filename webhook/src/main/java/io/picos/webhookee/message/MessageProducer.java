@@ -1,12 +1,12 @@
 package io.picos.webhookee.message;
 
-import io.picos.webhookee.core.Payload;
+import io.picos.webhookee.core.WebhookMessage;
 import io.picos.webhookee.core.Route;
 
 /**
  * @auther dz
  */
-public interface MessageProducer<T extends Payload> {
+public interface MessageProducer<T extends WebhookMessage> {
 
     /**
      * TODO return Future

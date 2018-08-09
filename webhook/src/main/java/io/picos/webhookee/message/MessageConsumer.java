@@ -1,17 +1,17 @@
 package io.picos.webhookee.message;
 
-import io.picos.webhookee.core.Payload;
+import io.picos.webhookee.core.WebhookMessage;
 import io.picos.webhookee.core.Route;
 
 /**
  * @auther dz
  */
-public interface MessageConsumer<T extends Payload> {
+public interface MessageConsumer<T extends WebhookMessage> {
 
     /**
      * @param route
-     * @param payload
+     * @param message
      */
-    void consume(Route route, T payload);
+    void consume(Route route, T message);
 
 }

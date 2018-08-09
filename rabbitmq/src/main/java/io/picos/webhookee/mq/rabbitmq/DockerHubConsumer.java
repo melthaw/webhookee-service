@@ -1,7 +1,6 @@
 package io.picos.webhookee.mq.rabbitmq;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.picos.webhookee.core.Payload;
 import io.picos.webhookee.core.Route;
 import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
 import io.picos.webhookee.message.MessageConsumer;
@@ -41,12 +40,12 @@ public class DockerHubConsumer implements MessageConsumer<DockerHubMessage> {
     public void process(Message message) {
         try {
             //deserialize
-            WebhookeeMessage<DockerHubMessage> webhookeeMessage = objectMapper.readValue(message.getBody(),
-                                                                                         WebhookeeMessage.class);
-            Route route = webhookeeMessage.getRoute();
-            DockerHubMessage payload = webhookeeMessage.getPayload();
+            DockerHubPayload rabbitPayload = objectMapper.readValue(message.getBody(),
+                                                                    DockerHubPayload.class);
+            Route route = rabbitPayload.getRoute();
+            DockerHubMessage dockerHubMessage = rabbitPayload.getMessage();
 
-            consume(route, payload);
+            consume(route, dockerHubMessage);
         } catch (RestClientException e) {
             logger.error("Process webhook request failed.\n Content:\n" + new String(message.getBody()), e);
         } catch (IOException e) {
@@ -55,14 +54,14 @@ public class DockerHubConsumer implements MessageConsumer<DockerHubMessage> {
     }
 
     @Override
-    public void consume(Route route, DockerHubMessage payload) {
+    public void consume(Route route, DockerHubMessage message) {
         if (WorkTileMessage.MESSAGE_TYPE.equals(route.getTargetType())) {
             this.restTemplate.postForLocation(route.getTargetUrl(),
-                                              WorkTileMessage.from(payload));
+                                              WorkTileMessage.from(message));
         }
         else if (BearyChatMessage.MESSAGE_TYPE.equals(route.getTargetType())) {
             this.restTemplate.postForLocation(route.getTargetUrl(),
-                                              BearyChatMessage.from(payload));
+                                              BearyChatMessage.from(message));
         }
     }
 }

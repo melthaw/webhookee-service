@@ -1,7 +1,7 @@
 package io.picos.webhookee.outgoing.bearychat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import io.picos.webhookee.core.Payload;
+import io.picos.webhookee.core.WebhookMessage;
 import io.picos.webhookee.incoming.bitbucket.BitBucketMessage;
 import io.picos.webhookee.incoming.coding.CodingMessage;
 import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
@@ -32,7 +32,7 @@ import java.util.List;
  * @auther dz
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BearyChatMessage implements Payload {
+public class BearyChatMessage implements WebhookMessage {
 
     public static final String MESSAGE_TYPE = "bearychat";
 

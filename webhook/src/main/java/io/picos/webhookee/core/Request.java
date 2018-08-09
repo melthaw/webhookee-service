@@ -7,6 +7,6 @@ public interface Request {
 
     Route getRoute();
 
-    Payload getPayload();
+    WebhookMessage getPayload();
 
 }
