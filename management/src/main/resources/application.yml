@@ -1,9 +1,9 @@
 app:
-  name: webhookee server
-  description: webhookee server
+  name: webhookee management server
+  description: webhookee management server
 
 server:
-  port: 8080
+  port: 80
   address: 0.0.0.0
 
 security:

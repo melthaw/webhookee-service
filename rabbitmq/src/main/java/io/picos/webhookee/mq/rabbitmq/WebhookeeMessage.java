@@ -1,5 +1,7 @@
 package io.picos.webhookee.mq.rabbitmq;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import io.picos.webhookee.core.DefaultRoute;
 import io.picos.webhookee.core.Payload;
 import io.picos.webhookee.core.Route;
 
@@ -8,16 +10,17 @@ import java.io.Serializable;
 /**
  * @auther dz
  */
-public class WebhookeeMessage implements Serializable {
+public class WebhookeeMessage<T extends Payload> implements Serializable {
 
+    @JsonDeserialize(as = DefaultRoute.class)
     private Route route;
 
-    private Payload payload;
+    private T payload;
 
     public WebhookeeMessage() {
     }
 
-    public WebhookeeMessage(Route route, Payload payload) {
+    public WebhookeeMessage(Route route, T payload) {
         this.route = route;
         this.payload = payload;
     }
@@ -30,11 +33,11 @@ public class WebhookeeMessage implements Serializable {
         this.route = route;
     }
 
-    public Payload getPayload() {
+    public T getPayload() {
         return payload;
     }
 
-    public void setPayload(Payload payload) {
+    public void setPayload(T payload) {
         this.payload = payload;
     }
 

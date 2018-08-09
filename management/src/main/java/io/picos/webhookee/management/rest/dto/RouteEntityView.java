@@ -15,6 +15,17 @@ public class RouteEntityView extends RouteEntity {
 
         RouteEntityView result = new RouteEntityView();
         BeanUtils.copyProperties(entity, result);
+        result.setWebhookUrl(String.format("/api/%s/%s", entity.getType(), entity.getId()));
         return result;
+    }
+
+    private String webhookUrl;
+
+    public String getWebhookUrl() {
+        return webhookUrl;
+    }
+
+    public void setWebhookUrl(String webhookUrl) {
+        this.webhookUrl = webhookUrl;
     }
 }

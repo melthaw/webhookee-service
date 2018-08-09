@@ -16,8 +16,28 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitAutoConfiguration {
 
     @Bean
-    public Queue myQueue() {
-        return new Queue(Constants.WEBHOOKEE_QUEUE);
+    public Queue dockerhubQueue() {
+        return new Queue(Constants.WEBHOOKEE_DOCKERHUB_QUEUE);
+    }
+
+    @Bean
+    public Queue bitbucketQueue() {
+        return new Queue(Constants.WEBHOOKEE_BITBUCKET_QUEUE);
+    }
+
+    @Bean
+    public Queue codingQueue() {
+        return new Queue(Constants.WEBHOOKEE_CODING_QUEUE);
+    }
+
+    @Bean
+    public Queue githubQueue() {
+        return new Queue(Constants.WEBHOOKEE_GITHUB_QUEUE);
+    }
+
+    @Bean
+    public Queue gitlabQueue() {
+        return new Queue(Constants.WEBHOOKEE_GITLAB_QUEUE);
     }
 
 }

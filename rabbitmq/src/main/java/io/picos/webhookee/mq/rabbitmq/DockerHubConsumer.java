@@ -23,9 +23,9 @@ import java.io.IOException;
  * @auther dz
  */
 @Component
-public class RabbitMessageConsumer implements MessageConsumer {
+public class DockerHubConsumer implements MessageConsumer<DockerHubMessage> {
 
-    private static final Log logger = LogFactory.getLog(RabbitMessageConsumer.class);
+    private static final Log logger = LogFactory.getLog(DockerHubConsumer.class);
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -33,17 +33,18 @@ public class RabbitMessageConsumer implements MessageConsumer {
     private RestTemplate restTemplate;
 
     @Autowired
-    public RabbitMessageConsumer(RestTemplateBuilder builder) {
+    public DockerHubConsumer(RestTemplateBuilder builder) {
         this.restTemplate = builder.build();
     }
 
-    @RabbitListener(queues = Constants.WEBHOOKEE_QUEUE)
+    @RabbitListener(queues = Constants.WEBHOOKEE_DOCKERHUB_QUEUE)
     public void process(Message message) {
         try {
             //deserialize
-            WebhookeeMessage webhookeeMessage = objectMapper.readValue(message.getBody(), WebhookeeMessage.class);
+            WebhookeeMessage<DockerHubMessage> webhookeeMessage = objectMapper.readValue(message.getBody(),
+                                                                                         WebhookeeMessage.class);
             Route route = webhookeeMessage.getRoute();
-            Payload payload = webhookeeMessage.getPayload();
+            DockerHubMessage payload = webhookeeMessage.getPayload();
 
             consume(route, payload);
         } catch (RestClientException e) {
@@ -54,19 +55,14 @@ public class RabbitMessageConsumer implements MessageConsumer {
     }
 
     @Override
-    public void consume(Route route, Payload payload) {
+    public void consume(Route route, DockerHubMessage payload) {
         if (WorkTileMessage.MESSAGE_TYPE.equals(route.getTargetType())) {
-            if (payload instanceof DockerHubMessage) {
-                this.restTemplate.postForLocation(route.getTargetUrl(),
-                                                  WorkTileMessage.from((DockerHubMessage) payload));
-            }
+            this.restTemplate.postForLocation(route.getTargetUrl(),
+                                              WorkTileMessage.from(payload));
         }
         else if (BearyChatMessage.MESSAGE_TYPE.equals(route.getTargetType())) {
-            if (payload instanceof DockerHubMessage) {
-                this.restTemplate.postForLocation(route.getTargetUrl(),
-                                                  BearyChatMessage.from((DockerHubMessage) payload));
-            }
+            this.restTemplate.postForLocation(route.getTargetUrl(),
+                                              BearyChatMessage.from(payload));
         }
     }
-
 }

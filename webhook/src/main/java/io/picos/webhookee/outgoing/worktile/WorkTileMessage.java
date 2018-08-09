@@ -31,7 +31,11 @@ package io.picos.webhookee.outgoing.worktile;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.picos.webhookee.core.Payload;
+import io.picos.webhookee.incoming.bitbucket.BitBucketMessage;
+import io.picos.webhookee.incoming.coding.CodingMessage;
 import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
+import io.picos.webhookee.incoming.github.GitHubMessage;
+import io.picos.webhookee.incoming.gitlab.GitLabMessage;
 
 /**
  * @auther dz
@@ -40,6 +44,34 @@ import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
 public class WorkTileMessage implements Payload {
 
     public static final String MESSAGE_TYPE = "worktile";
+
+    public static WorkTileMessage from(CodingMessage payload) {
+        WorkTileMessage result = new WorkTileMessage();
+
+
+        return result;
+    }
+
+    public static WorkTileMessage from(GitHubMessage payload) {
+        WorkTileMessage result = new WorkTileMessage();
+
+
+        return result;
+    }
+
+    public static WorkTileMessage from(GitLabMessage payload) {
+        WorkTileMessage result = new WorkTileMessage();
+
+
+        return result;
+    }
+
+    public static WorkTileMessage from(BitBucketMessage payload) {
+        WorkTileMessage result = new WorkTileMessage();
+
+
+        return result;
+    }
 
     public static WorkTileMessage from(DockerHubMessage dockerHubMessage) {
         WorkTileMessage result = new WorkTileMessage();

@@ -2,7 +2,11 @@ package io.picos.webhookee.outgoing.bearychat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.picos.webhookee.core.Payload;
+import io.picos.webhookee.incoming.bitbucket.BitBucketMessage;
+import io.picos.webhookee.incoming.coding.CodingMessage;
 import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
+import io.picos.webhookee.incoming.github.GitHubMessage;
+import io.picos.webhookee.incoming.gitlab.GitLabMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +35,33 @@ import java.util.List;
 public class BearyChatMessage implements Payload {
 
     public static final String MESSAGE_TYPE = "bearychat";
+
+    public static BearyChatMessage from(CodingMessage payload) {
+        BearyChatMessage result = new BearyChatMessage();
+
+
+        return result;
+    }
+
+    public static BearyChatMessage from(GitHubMessage payload) {
+        BearyChatMessage result = new BearyChatMessage();
+
+
+        return result;
+    }
+
+    public static BearyChatMessage from(GitLabMessage payload) {
+        BearyChatMessage result = new BearyChatMessage();
+
+
+        return result;
+    }
+
+    public static BearyChatMessage from(BitBucketMessage payload) {
+        BearyChatMessage result = new BearyChatMessage();
+
+        return result;
+    }
 
     public static BearyChatMessage from(DockerHubMessage dockerHubMessage) {
         BearyChatMessage result = new BearyChatMessage();
@@ -101,4 +132,5 @@ public class BearyChatMessage implements Payload {
     public void setAttachments(List<BearyChatAttachment> attachments) {
         this.attachments = attachments;
     }
+
 }
