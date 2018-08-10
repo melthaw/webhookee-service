@@ -18,5 +18,4 @@ public class ManagementRestControllerTest extends AbstractTest {
                 .assertThat()
                 .statusCode(200);
     }
-
 }

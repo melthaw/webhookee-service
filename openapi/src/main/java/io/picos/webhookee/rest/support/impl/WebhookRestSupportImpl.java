@@ -32,7 +32,7 @@ public class WebhookRestSupportImpl implements WebhookRestSupport {
     private MessageProducer messageProducer;
 
     @Override
-    public void processMessage(String id, BitBucketMessage message) {
+    public void processMessage(String id, String eventKey, BitBucketMessage message) {
         Route route = router.findRoute(id);
         if (route == null) {
             throw new RouteNotFoundException(id);

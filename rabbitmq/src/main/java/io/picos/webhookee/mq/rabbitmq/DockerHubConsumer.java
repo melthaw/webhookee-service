@@ -5,6 +5,7 @@ import io.picos.webhookee.core.Route;
 import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
 import io.picos.webhookee.message.MessageConsumer;
 import io.picos.webhookee.outgoing.bearychat.BearyChatMessage;
+import io.picos.webhookee.outgoing.dingding.DingDingMessage;
 import io.picos.webhookee.outgoing.worktile.WorkTileMessage;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -62,6 +63,10 @@ public class DockerHubConsumer implements MessageConsumer<DockerHubMessage> {
         else if (BearyChatMessage.MESSAGE_TYPE.equals(route.getTargetType())) {
             this.restTemplate.postForLocation(route.getTargetUrl(),
                                               BearyChatMessage.from(message));
+        }
+        else if (DingDingMessage.MESSAGE_TYPE.equals(route.getTargetType())) {
+            this.restTemplate.postForLocation(route.getTargetUrl(),
+                                              DingDingMessage.from(message));
         }
     }
 }

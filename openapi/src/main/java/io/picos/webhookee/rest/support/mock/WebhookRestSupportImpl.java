@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 public class WebhookRestSupportImpl implements WebhookRestSupport {
 
     @Override
-    public void processMessage(String id, BitBucketMessage message) {
+    public void processMessage(String id, String eventKey, BitBucketMessage message) {
 
     }
 

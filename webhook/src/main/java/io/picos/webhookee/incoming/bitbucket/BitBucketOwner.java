@@ -1,21 +1,23 @@
 package io.picos.webhookee.incoming.bitbucket;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * @auther dz
  */
-public class BitBucketActor {
+public class BitBucketOwner {
 
     private String uuid;
 
+    private String type;
+
     private String username;
 
-    //TODO json name : display_name
+    @JsonProperty("display_name")
     private String displayName;
 
-    //TODO json name: account_id
+    @JsonProperty("account_id")
     private String accountId;
-
-    private String type;
 
     private BitBucketLink links;
 

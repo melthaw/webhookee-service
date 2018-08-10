@@ -26,8 +26,13 @@ public class WebhookRestController {
 
     @PostMapping("/bitbucket/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void bitbucket(@PathVariable String id, @RequestBody BitBucketMessage message) {
-        webhookRestSupport.processMessage(id, message);
+    public void bitbucket(@PathVariable String id,
+                          @RequestHeader("X-Event-Key") String eventKey,
+                          @RequestHeader("X-Hook-UUID") String hookUuid,
+                          @RequestHeader("X-Request-UUID") String requestUuid,
+                          @RequestHeader("X-Attempt-Number") String attemptNumber,
+                          @RequestBody BitBucketMessage message) {
+        webhookRestSupport.processMessage(id, eventKey, message);
     }
 
     @PostMapping("/github/{id}")
@@ -59,7 +64,7 @@ public class WebhookRestController {
     @PostMapping("/slack/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void slack(@PathVariable String id, @RequestBody BitBucketMessage message) {
-        webhookRestSupport.processMessage(id, message);
+        webhookRestSupport.processMessage(id, id, message);
     }
 
     @PostMapping("/dingding/{id}")

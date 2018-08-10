@@ -1,5 +1,7 @@
 package io.picos.webhookee.incoming.bitbucket;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * @auther dz
  */
@@ -7,25 +9,25 @@ public class BitBucketRepository {
 
     private String uuid;
 
+    private String type;
+
     private String name;
+
+    @JsonProperty("full_name")
+    private String fullName;
 
     private String scm;
 
     private String website;
 
-    //TODO json name: full_name
-    private String fullName;
-
-    private String type;
-
-    //TODO json name: is_private
+    @JsonProperty("is_private")
     private boolean isPrivate;
 
     private BitBucketLink links;
 
     private BitBucketProject project;
 
-    private BitBucketActor owner;
+    private BitBucketOwner owner;
 
     public String getUuid() {
         return uuid;
@@ -99,11 +101,11 @@ public class BitBucketRepository {
         this.project = project;
     }
 
-    public BitBucketActor getOwner() {
+    public BitBucketOwner getOwner() {
         return owner;
     }
 
-    public void setOwner(BitBucketActor owner) {
+    public void setOwner(BitBucketOwner owner) {
         this.owner = owner;
     }
 }

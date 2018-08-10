@@ -16,7 +16,7 @@ import io.picos.webhookee.outgoing.worktile.WorkTileMessage;
  */
 public interface WebhookRestSupport {
 
-    void processMessage(String id, BitBucketMessage message);
+    void processMessage(String id, String eventKey, BitBucketMessage message);
 
     void processMessage(String id, GitHubMessage message);
 
