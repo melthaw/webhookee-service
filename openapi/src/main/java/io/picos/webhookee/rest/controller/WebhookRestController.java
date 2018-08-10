@@ -55,9 +55,15 @@ public class WebhookRestController {
 
     @PostMapping("/coding/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void coding(@PathVariable String id, @RequestBody CodingMessage message) {
-        webhookRestSupport.processMessage(id, message);
+    public void coding(@PathVariable String id,
+                       @RequestHeader("X-Coding-Event") String codingEvent,
+                       @RequestHeader("X-Coding-Signature") String codingSignature,
+                       @RequestHeader("X-Coding-Delivery") String codingDelivery,
+                       @RequestHeader("User-Agent") String userAgent,
+                       @RequestBody CodingMessage message) {
+        webhookRestSupport.processMessage(id, codingEvent, message);
     }
+
 
     //quick test for IM
 

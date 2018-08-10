@@ -24,7 +24,7 @@ public interface WebhookRestSupport {
 
     void processMessage(String id, DockerHubMessage message);
 
-    void processMessage(String id, CodingMessage message);
+    void processMessage(String id, String codingEvent, CodingMessage message);
 
     void processMessage(String id, SlackMessage message);
 

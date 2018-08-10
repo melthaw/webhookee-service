@@ -96,7 +96,7 @@ public class WebhookRestSupportImpl implements WebhookRestSupport {
     }
 
     @Override
-    public void processMessage(String id, CodingMessage message) {
+    public void processMessage(String id, String codingEvent, CodingMessage message) {
         Route route = router.findRoute(id);
         if (route == null) {
             throw new RouteNotFoundException(id);
