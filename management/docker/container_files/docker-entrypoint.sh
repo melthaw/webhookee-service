@@ -9,6 +9,6 @@ echo "SLEEP 10 seconds ..."
 
 sleep 10
 
-echo "Webhookee Broker is starting..."
+echo "Webhookee Management is starting..."
 
-java $JAVA_OPTS -jar "/webhookee-broker-${JAR_VERSION}.jar" "$@"
+java $JAVA_OPTS -jar "/webhookee-management-${JAR_VERSION}.jar" "$@"

@@ -3,6 +3,10 @@ logging:
   level:
     in.picos.webhookee: DEBUG
 
+server:
+  port: 80
+  address: 0.0.0.0
+
 endpoints:
   enabled: false
   health:

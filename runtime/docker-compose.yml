@@ -2,9 +2,7 @@ version: '2.1'
 services:
   broker:
     container_name: webhookee-broker
-    build:
-      context: broker
-      dockerfile: docker/Dockerfile
+    image: melthaw/webhookee:broker
     depends_on:
       - mongodb
       - rabbitmq
@@ -20,6 +18,18 @@ services:
       RABBITMQ_PORT: 5672
       RABBITMQ_USERNAME: guest
       RABBITMQ_PASSWORD: guest
+  management:
+    container_name: webhookee-management
+    image: melthaw/webhookee:management
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+    ports:
+      - "8080:80"
+    environment:
+      MONGODB_HOST: mongodb
+      MONGODB_PORT: 27017
   rabbitmq:
     container_name: webhookee-rabbitmq
     image: rabbitmq:3-management
