@@ -6,6 +6,7 @@ import io.picos.webhookee.incoming.gitlab.GitLabMessage;
 import io.picos.webhookee.message.MessageConsumer;
 import io.picos.webhookee.outgoing.bearychat.BearyChatMessage;
 import io.picos.webhookee.outgoing.worktile.WorkTileMessage;
+import io.picos.webhookee.outgoing.worktile.WorkTileMessages;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.amqp.core.Message;
@@ -58,7 +59,7 @@ public class GitLabConsumer implements MessageConsumer<GitLabMessage> {
 
         if (WorkTileMessage.MESSAGE_TYPE.equals(route.getTargetType())) {
             this.restTemplate.postForLocation(route.getTargetUrl(),
-                                              WorkTileMessage.from(message));
+                                              WorkTileMessages.from(message));
         }
         else if (BearyChatMessage.MESSAGE_TYPE.equals(route.getTargetType())) {
             this.restTemplate.postForLocation(route.getTargetUrl(),
