@@ -27,10 +27,10 @@ public class WebhookRestController {
     @PostMapping("/bitbucket/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void bitbucket(@PathVariable String id,
-                          @RequestHeader("X-Event-Key") String eventKey,
-                          @RequestHeader("X-Hook-UUID") String hookUuid,
-                          @RequestHeader("X-Request-UUID") String requestUuid,
-                          @RequestHeader("X-Attempt-Number") String attemptNumber,
+                          @RequestHeader(value = "X-Event-Key", required = true) String eventKey,
+                          @RequestHeader(value = "X-Hook-UUID", required = false) String hookUuid,
+                          @RequestHeader(value = "X-Request-UUID", required = false) String requestUuid,
+                          @RequestHeader(value = "X-Attempt-Number", required = false) String attemptNumber,
                           @RequestBody BitBucketMessage message) {
         webhookRestSupport.processMessage(id, eventKey, message);
     }
@@ -56,17 +56,15 @@ public class WebhookRestController {
     @PostMapping("/coding/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void coding(@PathVariable String id,
-                       @RequestHeader("X-Coding-Event") String codingEvent,
-                       @RequestHeader("X-Coding-Signature") String codingSignature,
-                       @RequestHeader("X-Coding-Delivery") String codingDelivery,
-                       @RequestHeader("User-Agent") String userAgent,
+                       @RequestHeader(value = "X-Coding-Event", required = true) String codingEvent,
+                       @RequestHeader(value = "X-Coding-Signature", required = false) String codingSignature,
+                       @RequestHeader(value = "X-Coding-Delivery", required = false) String codingDelivery,
+                       @RequestHeader(value = "User-Agent", required = false, defaultValue = "") String userAgent,
                        @RequestBody CodingMessage message) {
         webhookRestSupport.processMessage(id, codingEvent, message);
     }
 
-
     //quick test for IM
-
     @PostMapping("/slack/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void slack(@PathVariable String id, @RequestBody BitBucketMessage message) {

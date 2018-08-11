@@ -40,8 +40,109 @@ public class BitBucketMessage implements WebhookMessage {
 
     private BitBucketApproval approval;
 
+    public BitBucketHeader getHeader() {
+        return header;
+    }
 
+    public void setHeader(BitBucketHeader header) {
+        this.header = header;
+    }
 
+    public BitBucketOwner getActor() {
+        return actor;
+    }
+
+    public void setActor(BitBucketOwner actor) {
+        this.actor = actor;
+    }
+
+    public BitBucketRepository getRepository() {
+        return repository;
+    }
+
+    public void setRepository(BitBucketRepository repository) {
+        this.repository = repository;
+    }
+
+    public BitBucketRepository getFork() {
+        return fork;
+    }
+
+    public void setFork(BitBucketRepository fork) {
+        this.fork = fork;
+    }
+
+    public BitBucketPush getPush() {
+        return push;
+    }
+
+    public void setPush(BitBucketPush push) {
+        this.push = push;
+    }
+
+    public BitBucketChange getChanges() {
+        return changes;
+    }
+
+    public void setChanges(BitBucketChange changes) {
+        this.changes = changes;
+    }
+
+    public BitBucketOwner getPreviousOwner() {
+        return previousOwner;
+    }
+
+    public void setPreviousOwner(BitBucketOwner previousOwner) {
+        this.previousOwner = previousOwner;
+    }
+
+    public BitBucketComment getComment() {
+        return comment;
+    }
+
+    public void setComment(BitBucketComment comment) {
+        this.comment = comment;
+    }
+
+    public BitBucketCommit getCommit() {
+        return commit;
+    }
+
+    public void setCommit(BitBucketCommit commit) {
+        this.commit = commit;
+    }
+
+    public BitBucketCommitStatus getCommitStatus() {
+        return commitStatus;
+    }
+
+    public void setCommitStatus(BitBucketCommitStatus commitStatus) {
+        this.commitStatus = commitStatus;
+    }
+
+    public BitBucketIssue getIssue() {
+        return issue;
+    }
+
+    public void setIssue(BitBucketIssue issue) {
+        this.issue = issue;
+    }
+
+    public BitBucketPullRequest getPullrequest() {
+        return pullrequest;
+    }
+
+    public void setPullrequest(BitBucketPullRequest pullrequest) {
+        this.pullrequest = pullrequest;
+    }
+
+    public BitBucketApproval getApproval() {
+        return approval;
+    }
+
+    public void setApproval(BitBucketApproval approval) {
+        this.approval = approval;
+    }
 }
 
 
