@@ -1,5 +1,6 @@
 package io.picos.webhookee.outgoing.dingding;
 
+import io.picos.webhookee.incoming.bitbucket.BitBucketEventTypes;
 import io.picos.webhookee.incoming.bitbucket.BitBucketMessage;
 import io.picos.webhookee.incoming.coding.CodingMessage;
 import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
@@ -33,9 +34,66 @@ public class DingDingMessages {
         return result;
     }
 
-    public static DingDingMessage from(BitBucketMessage payload) {
+    public static DingDingMessage from(BitBucketMessage bitBucketMessage) {
         DingDingMessage result = new DingDingMessage();
 
+        if (BitBucketEventTypes.REPO_PUSH.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.REPO_FORK.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.REPO_UPDATED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.REPO_TRANSFER.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.REPO_COMMIT_COMMENT_CREATED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.REPO_COMMIT_STATUS_CREATED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.REPO_COMMIT_STATUS_UPDATED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.ISSUE_CREATED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.ISSUE_UPDATED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.ISSUE_COMMENT_CREATED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.PULLREQUEST_CREATED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.PULLREQUEST_UPDATED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.PULLREQUEST_APPROVED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.PULLREQUEST_UNAPPROVED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.PULLREQUEST_FULFILLED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.PULLREQUEST_REJECTED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.PULLREQUEST_COMMENT_CREATED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.PULLREQUEST_COMMENT_UPDATED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
+        else if (BitBucketEventTypes.PULLREQUEST_COMMENT_DELETED.equals(bitBucketMessage.getHeader().getEventKey())) {
+
+        }
 
         return result;
     }

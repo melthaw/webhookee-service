@@ -1,13 +1,6 @@
 package io.picos.webhookee.outgoing.dingding;
 
 import io.picos.webhookee.core.WebhookMessage;
-import io.picos.webhookee.incoming.bitbucket.BitBucketMessage;
-import io.picos.webhookee.incoming.coding.CodingMessage;
-import io.picos.webhookee.incoming.dockerhub.DockerHubMessage;
-import io.picos.webhookee.incoming.github.GitHubMessage;
-import io.picos.webhookee.incoming.gitlab.GitLabMessage;
-
-import java.util.Date;
 
 /**
  * @auther dz
