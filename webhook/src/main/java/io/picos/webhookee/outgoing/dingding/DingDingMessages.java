@@ -1,5 +1,6 @@
 package io.picos.webhookee.outgoing.dingding;
 
+import io.picos.webhookee.incoming.aliyun.AliyunRepositoryMessage;
 import io.picos.webhookee.incoming.bitbucket.BitBucketEventTypes;
 import io.picos.webhookee.incoming.bitbucket.BitBucketIssue;
 import io.picos.webhookee.incoming.bitbucket.BitBucketMessage;
@@ -282,6 +283,37 @@ public class DingDingMessages {
         result.setMarkdown(markDown);
 
         return result;
+    }
+
+    public static DingDingMessage from(AliyunRepositoryMessage message) {
+        DingDingMessage result = new DingDingMessage();
+
+        DingDingMarkDown markDown = new DingDingMarkDown();
+        markDown.setTitle(String.format("DockerHub: %s:%s is pushed",
+                                        message.getRepository().getRepoName(),
+                                        message.getPushData().getTag()));
+
+        StringBuffer markDownContent = new StringBuffer();
+        markDownContent.append(String.format("## [DockerHub] %s:%s is pushed",
+                                             message.getRepository().getRepoName(),
+                                             message.getPushData().getTag()))
+                       .append("\n\n")
+                       .append(String.format("> **Repository**:  %s",
+                                             message.getRepository().getRepoName()))
+                       .append("\n\n")
+                       .append(String.format("> **Tag**:  %s", message.getPushData().getTag()))
+                       .append("\n\n")
+                       .append(String.format("> **Pusher**:  %s", message.getPushData().getPusher()))
+                       .append("\n\n")
+                       .append(String.format("> **Pushed At** : %s",
+                                             message.getPushData().getPushedAt()));
+        markDown.setText(markDownContent.toString());
+
+        result.setMsgtype("markdown");
+        result.setMarkdown(markDown);
+
+        return result;
+
     }
 
 }
