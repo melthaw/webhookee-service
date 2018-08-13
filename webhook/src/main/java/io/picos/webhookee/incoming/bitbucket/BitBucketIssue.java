@@ -17,6 +17,8 @@ public class BitBucketIssue {
 
     private String priority;
 
+    private String assignee;
+
     private String state;
 
     private String type;
@@ -71,6 +73,14 @@ public class BitBucketIssue {
 
     public void setPriority(String priority) {
         this.priority = priority;
+    }
+
+    public String getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(String assignee) {
+        this.assignee = assignee;
     }
 
     public String getState() {

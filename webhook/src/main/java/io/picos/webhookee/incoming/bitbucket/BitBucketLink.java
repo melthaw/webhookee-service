@@ -11,6 +11,16 @@ public class BitBucketLink {
 
     private BitBucketLinkItem avatar;
 
+    private BitBucketLinkItem patch;
+
+    private BitBucketLinkItem diff;
+
+    private BitBucketLinkItem approve;
+
+    private BitBucketLinkItem statuses;
+
+    private BitBucketLinkItem comments;
+
     public BitBucketLinkItem getSelf() {
         return self;
     }
@@ -33,6 +43,46 @@ public class BitBucketLink {
 
     public void setAvatar(BitBucketLinkItem avatar) {
         this.avatar = avatar;
+    }
+
+    public BitBucketLinkItem getPatch() {
+        return patch;
+    }
+
+    public void setPatch(BitBucketLinkItem patch) {
+        this.patch = patch;
+    }
+
+    public BitBucketLinkItem getDiff() {
+        return diff;
+    }
+
+    public void setDiff(BitBucketLinkItem diff) {
+        this.diff = diff;
+    }
+
+    public BitBucketLinkItem getApprove() {
+        return approve;
+    }
+
+    public void setApprove(BitBucketLinkItem approve) {
+        this.approve = approve;
+    }
+
+    public BitBucketLinkItem getStatuses() {
+        return statuses;
+    }
+
+    public void setStatuses(BitBucketLinkItem statuses) {
+        this.statuses = statuses;
+    }
+
+    public BitBucketLinkItem getComments() {
+        return comments;
+    }
+
+    public void setComments(BitBucketLinkItem comments) {
+        this.comments = comments;
     }
 
     public static class BitBucketLinkItem {
