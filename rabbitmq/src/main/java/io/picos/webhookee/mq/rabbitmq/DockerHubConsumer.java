@@ -53,6 +53,8 @@ public class DockerHubConsumer implements MessageConsumer<DockerHubMessage> {
             logger.error("Process webhook request failed.\n Content:\n" + new String(message.getBody()), e);
         } catch (IOException e) {
             logger.error("Parse json content failed.\n Content:\n" + new String(message.getBody()), e);
+        } catch (Throwable e) {
+            logger.error("Process webhook request failed.\n Content:\n" + new String(message.getBody()), e);
         }
     }
 

@@ -58,14 +58,27 @@ public class DingDingMessages {
                            .append("\n\n");
 
             bitBucketMessage.getPush().getChanges().forEach(change -> {
-                markDownContent.append(String.format("> **Branch**:  %s",
-                                                     change.getNewValue().getName()))
-                               .append("\n\n")
-                               .append(String.format("> **Comment**:  %s",
-                                                     change.getNewValue().getTarget().getMessage()))
-                               .append("\n\n")
-                               .append(String.format("> **Pushed At**:  %s",
-                                                     change.getNewValue().getTarget().getDate()));
+                if (change.getNewValue() != null) {
+                    markDownContent.append(String.format("> **Branch**:  %s",
+                                                         change.getNewValue().getName()))
+                                   .append("\n\n")
+                                   .append(String.format("> **Comment**:  %s",
+                                                         change.getNewValue().getTarget().getMessage()))
+                                   .append("\n\n")
+                                   .append(String.format("> **Pushed At**:  %s",
+                                                         change.getNewValue().getTarget().getDate()))
+                                   .append("\n\n");
+                }
+                else if (change.getClosed()) {
+                    markDownContent.append(String.format("> **Branch**:  %s",
+                                                         change.getOld().getName()))
+                                   .append("\n\n")
+                                   .append("> **Status**:  Closed")
+                                   .append("\n\n")
+                                   .append(String.format("> **Pushed At**:  %s",
+                                                         change.getOld().getTarget().getDate()))
+                                   .append("\n\n");
+                }
             });
             markDown.setText(markDownContent.toString());
 
@@ -289,21 +302,19 @@ public class DingDingMessages {
         DingDingMessage result = new DingDingMessage();
 
         DingDingMarkDown markDown = new DingDingMarkDown();
-        markDown.setTitle(String.format("DockerHub: %s:%s is pushed",
-                                        message.getRepository().getRepoName(),
+        markDown.setTitle(String.format("Aliyun Docker: %s:%s is pushed",
+                                        message.getRepository().getRepoFullName(),
                                         message.getPushData().getTag()));
 
         StringBuffer markDownContent = new StringBuffer();
-        markDownContent.append(String.format("## [DockerHub] %s:%s is pushed",
-                                             message.getRepository().getRepoName(),
+        markDownContent.append(String.format("## [Aliyun Docker] %s:%s is pushed",
+                                             message.getRepository().getRepoFullName(),
                                              message.getPushData().getTag()))
                        .append("\n\n")
                        .append(String.format("> **Repository**:  %s",
-                                             message.getRepository().getRepoName()))
+                                             message.getRepository().getRepoFullName()))
                        .append("\n\n")
                        .append(String.format("> **Tag**:  %s", message.getPushData().getTag()))
-                       .append("\n\n")
-                       .append(String.format("> **Pusher**:  %s", message.getPushData().getPusher()))
                        .append("\n\n")
                        .append(String.format("> **Pushed At** : %s",
                                              message.getPushData().getPushedAt()));
