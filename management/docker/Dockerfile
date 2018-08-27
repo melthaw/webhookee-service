@@ -1,9 +1,7 @@
 ########## How To Use Docker Image ###############
 ##
-##  Image Name: melthaw/webhookee:management
-##  How To Build Docker Image: docker build --no-cache -f docker/Dockerfile -t melthaw/webhookee:management --rm=true .
-##  Docker hub link:
-##  Description: This docker container is for the webhooke management
+##  Image Name: picosio/webhookee:management
+##  How To Build Docker Image: docker build --no-cache -f docker/Dockerfile -t picosio/webhookee:management --rm=true .
 ##
 ##################################################
 from clouthinkin/jre

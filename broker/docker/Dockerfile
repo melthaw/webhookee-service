@@ -1,9 +1,7 @@
 ########## How To Use Docker Image ###############
 ##
-##  Image Name: melthaw/webhookee:broker
-##  How To Build Docker Image: docker build --no-cache -f docker/Dockerfile -t melthaw/webhookee:broker --rm=true .
-##  Docker hub link:
-##  Description: This docker container is for webhookee borker
+##  Image Name: picosio/webhookee:broker
+##  How To Build Docker Image: docker build --no-cache -f docker/Dockerfile -t picosio/webhookee:broker --rm=true .
 ##
 ##################################################
 from clouthinkin/jre
