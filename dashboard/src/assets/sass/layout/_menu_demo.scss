@@ -1,0 +1,223 @@
+.layout-tabmenu-content {
+    .inbox-tab {       
+        ul {
+            padding: 0 6px;
+            margin: 0;
+            list-style-type: none;
+
+            li {
+                padding: 12px 0;
+
+                &:first-child {
+                    margin-top: 12px;
+                }
+
+                img {
+                    float: left;
+                    margin-right: 8px;
+                }
+
+                .name {
+                    font-weight: bold;
+                    float: left;
+                    color: $menuTextColor;
+                }
+                .message {
+                    float: left;
+                }
+            }
+        }
+
+        .inbox-labels {
+            margin: 20px 6px 0 6px;
+            color: $menuTextColor;
+
+            > span {
+                font-weight: bold;
+            }
+
+            ul {
+                margin-top: 10px;
+
+                li {
+                    padding: 6px;
+
+                    .inbox-label-badge {
+                        background-color: $textColor;
+                        color: #ffffff;
+                        padding: 2px 6px;
+                        @include border-radius(3px);
+                        float: right;
+                    }
+                }
+
+
+            }
+        }
+    }
+
+    .update-tab {
+        padding: 0px 4px 0px 8px;
+        
+        p {
+            padding: 12px 0;
+        }
+        .percentage-indicator {
+            margin-top: 10px;
+
+            span {
+                float: left;
+            }
+
+            span:first-child {
+                color: $menuTextColor;
+            }
+
+            span:last-child {
+                float: right;
+            }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            margin-top: 35px;
+
+            .progress-bar-indicator-1 {
+                background-color: $progressBarFirstColor;
+                width: 84%;
+                height: inherit;
+            }
+
+            .progress-bar-indicator-2 {
+                background-color: $progressBarSecondColor;
+                width: 58%;
+                height: inherit;
+            }
+
+            .progress-bar-indicator-3 {
+                background-color: $progressBarThirdColor;
+                width: 44%;
+                height: inherit;
+            }
+
+            .progress-bar-indicator-4 {
+                background-color: $progressBarForthColor;
+                width: 37%;
+                height: inherit;
+            }
+        }
+    }
+
+    .calendar-tab {
+        ul {
+            padding: 0 6px;
+            margin: 0;
+            list-style-type: none;
+
+            li {
+                padding: 12px 0;
+
+                &:first-child {
+                    margin-top: 12px;
+                }
+
+                .calendar-event-date {
+                    float: left;
+                    color: $highlightTextColor;
+                    background-color: $primaryColor;
+                    width: 48px;
+                    height: 48px;
+                    text-align: center;
+                    padding: 6px 0 0 0;
+                    font-size: 14px;
+                    font-weight: 700;
+                    box-sizing: border-box;
+                    margin-right: 8px;
+                    border-radius: 50%;
+
+                    span {
+                        width: 100%;
+                        display: inline-block;
+                    }    
+                }
+
+                .calendar-event-detail {
+                    float: left;
+
+                    .calendar-event-title {
+                        font-weight: 700;
+                        display: block;
+                        color: $menuTextColor;
+                    }
+
+                    i {
+                        margin-right: 4px;
+                    }
+
+                    .calendar-event-location {
+                        margin-right: 4px;
+                        font-weight: bold;
+                    }
+
+                    .calendar-event-rsvp {
+                        display: block;
+
+                        &.calendar-event-rsvp-yes {
+                            color: $primaryColor;
+                        }
+
+                        &.calendar-event-rsvp-maybe {
+                            color: #fbc948;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .projects-tab {
+        ul {
+            padding: 0 6px;
+            margin: 0;
+            list-style-type: none;
+
+            li {
+                padding: 12px 0;
+
+                &:first-child {
+                    margin-top: 12px;
+                }
+
+                i {
+                    font-size: 36px;
+                    margin-right: 8px;
+                    float: left;
+                    width: 32px;
+                }
+
+                .project-title {
+                    font-weight: 700;
+                    color: $menuTextColor;
+                }
+
+                span {
+                    float: left;
+                    display: block;
+                }
+
+                .project-progressbar {
+                    width: 100px;
+                    float: left;
+                    background-color: #545b61;
+                    margin-top: 4px;
+
+                    .project-progressbar-value {
+                        background-color: #8be298;
+                        height: 4px;
+                    }
+                }
+            }
+        }
+    }
+}

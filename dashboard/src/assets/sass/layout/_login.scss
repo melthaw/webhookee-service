@@ -1,0 +1,96 @@
+.login-body {
+    background-color: #f8f8f8;
+    box-sizing: border-box;
+    padding-top: 50px;
+    
+    .login-panel {
+        @include border-radius(3px);
+        background-color: #ffffff;
+        border: solid 1px #dce2e7;
+        width: 400px;
+        margin: 0 auto 40px;
+        text-align: center;
+        box-sizing: border-box;
+        color: #afafc0;
+        
+        .login-container {
+            padding: 50px 80px;
+            
+            h2 {
+                font-size: 13px;
+                font-weight: 400;
+                text-align: left;
+                margin-top: 0px;
+            }
+        }
+        
+        .stripe {
+            border-top: 1px solid #dbdbdb; 
+            height: 0; 
+            width: 100%;
+        }
+        
+        .ui-g-12 {
+            padding: 12px 0;
+        }
+
+        input {
+            padding: 10px;
+        }
+        
+        .logo-container {
+            .morpheus-logo {
+                vertical-align: bottom;
+                height: 28px;
+            }
+
+            .morpheus-logo-text {
+                font-size: 22px;
+                font-weight: 700;
+                padding-left: 5px;
+            }
+
+            .morpheus-logo-link {
+                vertical-align: middle;
+            }
+        }
+        
+        
+        .chkbox-container {
+            text-align: left;
+            
+            label {
+                color: #afafc0;
+                margin-left: 4px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+    
+    .facebook-btn {
+        background-color: #3b5998;
+        
+        &:hover {
+            background-color: lighten(#3b5998, 10%);
+        }
+    }
+    
+    .twitter-btn {
+        background-color: #0084b4;
+        
+        &:hover {
+            background-color: lighten(#0084b4, 10%);
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .login-body {
+        padding-top: 40px;
+        
+        .login-panel {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,109 @@
+/* Common */
+$fontSize:13px;
+$textColor:#777777;
+$textSecondaryColor:lighten($textColor,5%);
+$borderRadius:3px;
+$dividerColor:#eaeaea;
+$iconFontSize:16px;
+$iconWidth:16px;
+$iconHeight:16px;
+$mainColor: #61d42d;
+$fontFamily: "Source Sans Pro","Helvetica Neue",sans-serif;
+
+/* Layout */
+$bodyBgColor:#f8f8f8;
+$footerBgColor:#dee0e3;
+$footerLinkHoverColor: #494949;
+$menuBgColor: #2C2C2C;
+$menuBgColorActive: #1f1f1f;
+$menuTextColor: #c4c4c4;
+
+/* Topbar */
+$topbarMenuTextColor:#ffffff;
+$topbarMenuTextHoverColor:#e3e3e3;
+$topbarSubmenuBgColor:#f7f7f7;
+$topbarSubmenuItemHoverBgColor:#e3e3e3;
+$topbarButtonHoverBgColor: #f5f5f5;
+$topbarButtonHoverColor:#494949;
+$topbarIconColor:#afafaf;
+$topbarBgColor: #ffffff;
+
+/* Tab */
+$progressBarBgColor: #eeeeee;
+$progressBarFirstColor: #92f5a1;
+$progressBarSecondColor: #c4e3c9;
+$progressBarThirdColor: #c8cfc9;
+$progressBarForthColor: #dedede;
+
+/******************************/
+/*           THEME            */
+/******************************/
+$transitionDuration:.3s;
+
+/* Headers */
+$headerPadding:.5em 1em;
+$headerBgColor:#f1f1f1;
+$headerTextColor:#858585;
+$headerHoverBgColor:#dcdcdc;
+$headerBorderColor:#eaeaea;
+$headerIconColor:#858585;
+$headerIconHoverColor:#858585;
+$headerHoverTextColor: #6c6c6c;
+
+/* Contents */
+$contentPadding:.5em 1em;
+$contentBorderColor:#eaeaea;
+$contentBgColor:#ffffff;
+
+/* Panels */
+$panelHeaderBgColor:#e2e2e2;
+$headerSecondaryBgColor: #c0c0c0;
+$headerSecondaryBgHoverColor: #999999;
+$headerSecondaryBgActiveColor: #737373;
+
+/* Forms */
+$inputBgColor:#ffffff;
+$inputPadding:.308em;
+$inputBorderColor:#cfcfcf;
+$inputHoverBorderColor:#afafaf;
+$inputInvalidBorderColor:#e96d66;
+$inputInvalidBgColor:#f0d1d0;
+$inputTextColor: #777777;
+$inputBtnBgColor:#c0c0c0;
+$inputBtnBgHoverColor:#999999;
+$inputBtnBgActiveColor:#737373;
+$inputGroupAddonBgColor:#e6e6e6;
+
+/* List Items */
+$listItemPadding:.5em 1em;
+$listItemBgColor:#f9f9f9;
+$listItemHoverBgColor:#e2e2e2;
+$listItemHoverTextColor:#777777;
+
+/* Messages */
+$infoMessageBgColor:#ddedf4;
+$infoMessageTextColor:#393b38;
+$warnMessageBgColor:#fff7e1;
+$warnMessageTextColor:#393b38;
+$errorMessageBgColor:#ffddd5;
+$errorMessageTextColor:#393b38;
+$fatalMessageBgColor:#e1e1e1;
+$fatalMessageTextColor:#393b38;
+$successMessageBgColor: #C9E7CB;
+$successMessageTextColor: #393b38;
+
+/* Data */
+$paginatorBgColor:#f1f1f1;
+$paginatorHoverBgColor:#e2e2e2;
+$datatableOddRowBgColor:#ffffff;
+$datatableEvenRowBgColor:#f8f8f8;
+$datatableHoverBgColor:#e2e2e2;
+
+/* Predefined Colors */
+$yellow:#fbc948;
+$blue:#6ec5ff;
+$orange:#F1B009;
+$purple:#985edb;
+$pink:#f18983;
+$green:#59c429;
+$black:#777777;

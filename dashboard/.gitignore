@@ -3,8 +3,4 @@ build/
 node_modules/
 dist/
 .DS_Store
-*.iml
-*.ipr
-*.iws
 *.log
-src/
