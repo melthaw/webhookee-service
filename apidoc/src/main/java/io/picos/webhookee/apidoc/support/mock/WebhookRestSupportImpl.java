@@ -1,4 +1,4 @@
-package io.picos.webhookee.rest.support.mock;
+package io.picos.webhookee.apidoc.support.mock;
 
 import io.picos.webhookee.incoming.bitbucket.BitBucketMessage;
 import io.picos.webhookee.incoming.coding.CodingMessage;

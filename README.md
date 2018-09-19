@@ -61,7 +61,7 @@ The webhookee broker depends on outside server before it gets started.
 So please remember start the required db before test.
 
 ```
- docker-compose -f docker-compose.rabbitmq.yml up
+ docker-compose -f docker-compose.dev.yml up
 ```
 
 Finally start the test.
@@ -89,7 +89,7 @@ The webhookee broker depends on outside server before it gets started.
 So please remember start the required db before debug.
 
 ```
-docker-compose -f docker-compose.rabbitmq.yml up
+docker-compose -f docker-compose.dev.yml up
 ```
 
 

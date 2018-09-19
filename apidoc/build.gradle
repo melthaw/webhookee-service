@@ -11,13 +11,13 @@ apply plugin: "io.spring.dependency-management"
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile libs.swagger2
-
     compile "org.springframework.boot:spring-boot-starter"
     compile "org.springframework.boot:spring-boot-starter-web"
 
-    compile project(':openapi')
+    compile("io.springfox:springfox-swagger2:2.9.2")
+    compile("io.springfox:springfox-swagger-ui:2.9.2")
 
+    compile project(':openapi')
 }
 
 bootRun {
