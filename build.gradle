@@ -49,12 +49,10 @@ subprojects {
 
     jar {
         baseName = project['artifactId']
-        version = project['version']
     }
 
     task sourcesJar(type: Jar) {
         baseName = project['artifactId']
-        version = project['version']
         classifier = 'sources'
         from sourceSets.main.allSource
     }
