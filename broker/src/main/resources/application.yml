@@ -22,6 +22,6 @@ spring:
       write-dates-as-timestamps: true
   data:
     mongodb:
-      uri: mongodb://${MONGODB_HOST:localhost}:${MONGODB_PORT:27017}/webhookee
+      uri: mongodb://${MONGODB_HOST:localhost}:${MONGODB_PORT:27017}/${MONGODB_DB:webhookee}
   profiles:
     active: prd
